@@ -23,5 +23,9 @@ core/target
 pubsub/lib_managed
 pubsub/target
 
-#project spesific
+#python specific
+*.pyc
+*.pyo
+
+#project specific
 /target
