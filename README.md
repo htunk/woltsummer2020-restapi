@@ -1,7 +1,7 @@
 # Wolt summer 2020 REST API
 *This repository is a submission to [Wolt 2020 Engineering Pre-assignment](https://github.com/woltapp/summer2020). The REST API is implemented with Scalatra and Flask.*
 
-# Building & Running
+## Building & Running
 Easiest way to build and run the project is to use the Dockerized deploy version, which is generated from the sources.
 
     $ docker-compose up --build
@@ -17,21 +17,24 @@ Alternatively, you can run the project using Python and sbt:
     jetty:start
 The API is then reachable at http://127.0.0.1:8080/
 
-# REST API Specification
+## REST API Specification
 The API implements two main features: search and hash. Search is used to filter down the restaurants with given parameters, and hash is used to rehash given restaurants' url images with [Wolt blurhash-python](https://github.com/woltapp/blurhash-python).
 
 All returns are done in JSON format.
 
-## `/`
+### `/`
 #### Returns:
  - Status 302: The main page redirects user to `/restaurants`.
 
+<br/>
  
-## `/restaurants`
+### `/restaurants`
 #### Returns:
  - Status 200 - All loaded restaurants in list.
+ 
+<br/>
 
-## `/restaurants/search`
+### `/restaurants/search`
 #### Parameters:
 
 -   _q_: query string. Full or partial match for the string is searched from _name_, _description_ and _tags_ fields. A minimum length for the query string is one character.
@@ -48,8 +51,9 @@ All returns are done in JSON format.
  - Status 200 - A list of restaurants. 
  - Status 400 - With invalid parameters returns error message.
 
+<br/>
 
-## `/restaurants/hash`
+### `/restaurants/hash`
 #### Parameters:
 
 -   _q_: query string. Full or partial match for the string is searched from _name_, _description_ and _tags_ fields. A minimum length for the query string is one character.
@@ -68,7 +72,7 @@ All returns are done in JSON format.
  - Status 400 - With invalid parameters returns error message.
 
 
-# Testing
+## Testing
 Testing is done automatically while building the Docker-compose. Alternatively you can manually run tests with sbt:
 
     $ sbt test
