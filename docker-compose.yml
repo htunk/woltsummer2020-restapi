@@ -1,0 +1,19 @@
+version: '3.4'
+
+services:
+    hashapi:
+        build:
+            context: HashAPI
+            dockerfile: Dockerfile
+
+
+    woltrest:
+        build:
+            context: .
+            dockerfile: Dockerfile
+        ports:
+            - 8000:8080
+        depends_on:
+            - hashapi
+        environment: 
+            - HOST=hashapi

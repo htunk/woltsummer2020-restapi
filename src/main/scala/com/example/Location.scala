@@ -25,6 +25,7 @@ case class Location(latitude: Double, longitude: Double) {
   }
 }
 
+
 object Location {
   val earthRadius = 6371
 
